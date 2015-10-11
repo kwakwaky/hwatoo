@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- dataSource : oracle -->
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+	<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+	<property name="username" value="kwak"/>
+	<property name="password" value="1234"/>
+	<property name="maxActive" value="10"/>
+	<property name="maxWait" value="-1"/>
+</bean>
+
+<!-- sqlSessionFactoryBean -->
+<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"/>
+	<property name="mapperLocations">
+		<list>
+			<value>classpath:com/webapp/board/mapper/BoardMapper.xml</value>
+		</list>
+	</property>
+	<property name="typeAliases">
+		<list>
+			<value>com.webapp.board.model.BoardModel</value>
+		</list>
+	</property>
+</bean>
+
+<!-- sqlSessionTemplate -->
+<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg ref="sqlSessionFactoryBean"/>
+</bean>
+
+<!-- boardMapper -->
+<bean id="boardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.webapp.board.mapper.BoardMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
+</bean>
+
+<!-- BoardDao에 boardMapper주입 -->
+<bean class="com.webapp.board.dao.BoardDao">
+	<property name="boardMapper" ref="boardMapper"/>
+</bean>
+
+
+</beans>
