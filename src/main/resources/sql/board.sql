@@ -9,6 +9,7 @@ create table board (
 )
 
 create sequence board_num_seq start with 1;
+drop sequence board_num_seq;
 
 insert into board
 (num, name, password, subject, content, regdate)
@@ -17,7 +18,7 @@ values
 	board_num_seq.nextval,
 	'김구',
 	'1234',
-	'테스트12',
+	'테스트1',
 	'It is a test.',
 	sysdate
 )
@@ -40,6 +41,18 @@ select 	outer.rn,
    where outer.rn >= 1
      and outer.rn <= 5
      
-     
+insert into board
+   	(num, name, password, subject, content, regdate)
+   	values
+   	(
+   	board_num_seq.nextval,
+   	'김구',
+   	'1234',
+   	'테스트2',
+   	'테스트 입니다.',
+   	sysdate
+   	)
+   	
+delete from board
 
  	        

@@ -19,8 +19,7 @@
 </select>
 
 <!-- 모든 게시글 집합 -->
-<select id="selectAll"
-		resultMap="boardModelResultMap">
+<select id="selectAll" resultMap="boardModelResultMap">
 	select * from board order by num desc
 </select>
 
@@ -43,5 +42,32 @@
      where outer.rn &gt;= #{startNum}
        and outer.rn &lt;= #{endNum}
 </select>
+
+<!-- 선택한 게시글 읽기 -->
+<select id="readContentByNum"
+    	parameterType="int"
+    	resultType="com.webapp.board.model.BoardModel">
+    select * from board
+     where num = #{num}
+</select>
+
+<!-- dummy data insert -->
+<insert id="insertDummyData" parameterType="string">
+    insert into board
+   	(num, name, password, subject, content, regdate)
+   	values
+   	(
+   	board_num_seq.nextval,
+   	#{name},
+   	#{password},
+   	#{subject},
+   	#{content},
+   	sysdate
+   	)
+    
+</insert>
+
+
+
 
 </mapper>

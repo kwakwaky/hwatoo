@@ -14,5 +14,16 @@ public interface BoardMapper {
 	// 모든 게시글 집합
 	List<BoardModel> selectAll();
 	// 현재 페이지 게시글 집합
-	List<BoardModel> selectCurrentPage(@Param("startNum") int startNum, @Param("endNum") int endNum);
+	List<BoardModel> selectCurrentPage(@Param("startNum")	int startNum,
+									   @Param("endNum")		int endNum);
+	// 선택한 게시글 읽기
+	BoardModel readContentByNum(int num);
+	
+	
+	// dummy data insert
+	int insertDummyData(@Param("name")		String name,
+						@Param("password")	String password,
+						@Param("subject")	String subject, 
+						@Param("content")	String content);
+	
 }

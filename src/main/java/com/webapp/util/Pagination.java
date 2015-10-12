@@ -1,8 +1,8 @@
 package com.webapp.util;
 
 public class Pagination {
-	final static int ITEMS_PER_PAGE = 3; // 한 페이지당 보여줄 게시글
-	final static int PAGES_PER_GROUP = 3; // 현재 페이지에서 보이는 페이지 개수
+	final static int ITEMS_PER_PAGE = 10; // 한 페이지당 보여줄 게시글
+	final static int PAGES_PER_GROUP = 10; // 현재 페이지에서 보이는 페이지 개수
 
 	private int totalItem; // 모든 게시물 수
 	private int totalPage; // 총 페이지 수

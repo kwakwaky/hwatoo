@@ -29,4 +29,22 @@ public class BoardDao implements BoardMapper{
 		return boardMapper.selectCurrentPage(startNum, endNum);
 	}
 
+
+	@Override
+	public int insertDummyData(String name,
+							   String password,
+							   String subject, 
+							   String content) {
+		return boardMapper.insertDummyData(name, password, subject, content);
+	}
+
+	// 선택한 게시글 읽기
+	@Override
+	public BoardModel readContentByNum(int num) {
+		return boardMapper.readContentByNum(num);
+	}
+
+
+	
+
 }
