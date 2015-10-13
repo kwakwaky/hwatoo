@@ -28,4 +28,7 @@ public interface BoardMapper {
 	// 게시글 등록
 	int writeItem(BoardModel boardModel);
 	
+	// 게시글 수정
+	int updateItem(BoardModel boardModel);
+	
 }

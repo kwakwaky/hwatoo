@@ -60,8 +60,8 @@ public class BoardController {
 	// 게시글 읽기 메서드
 	public String readItem(String num, Model model) {
 		log.info("num = " + num);
-		BoardModel content = dao.readContentByNum(Integer.parseInt(num));
-		model.addAttribute("content", content);
+		BoardModel item = dao.readContentByNum(Integer.parseInt(num));
+		model.addAttribute("item", item);
 		
 		return "board/read";
 	}

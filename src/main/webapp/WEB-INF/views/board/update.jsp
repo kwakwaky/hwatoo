@@ -10,29 +10,23 @@
 
 </head>
 <body>
-<h1 align="center">write</h1>
+<h1 align="center">update</h1>
 
 <form:form commandName="write" method="post">
 	<div>
-	작성자 :<form:input path="name"/>
+	작성자 : ${board.subject}
 	</div>
 	<div>
 	비밀번호 :<form:password path="password"/>
 	</div>
 	<div>
-	제목 : <form:input path="subject"/>
+	제목 : <form:input path="subject" value="${board.subject}"/>
 	</div>
 	<div>
-	<form:textarea path="content"/>
+	<textarea id="content" name="content">${board.content}</textarea>
 	</div>
-	
 	<input type="submit" value="완료">
 </form:form>
-
-${content.name}
-${content.subject}
-${content.content }
-
 
 
 </body>

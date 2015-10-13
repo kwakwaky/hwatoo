@@ -81,6 +81,17 @@
    	)
 </insert>
 
+<!-- 게시글 수정 -->
+<update id="updateItem" parameterType="com.webapp.board.model.BoardModel">
+    update board
+    <set>
+    	<if test="password != null">password = #{password},</if>
+    	<if test="subject != null">subject  =  #{subject},</if>
+    	<if test="content != null">content  =  #{content},</if>
+    </set>
+    where num = #{num}
+
+</update>
 
 
 </mapper>

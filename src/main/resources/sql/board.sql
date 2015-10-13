@@ -53,6 +53,8 @@ insert into board
    	sysdate
    	)
    	
-delete from board
-
- 	        
+update board
+   set password = 'qwer',
+   	   subject = '변경된 제목',
+   	   content = '변경된 내용'
+ where num = 4
