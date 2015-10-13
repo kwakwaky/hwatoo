@@ -44,6 +44,14 @@ public class BoardDao implements BoardMapper{
 		return boardMapper.readContentByNum(num);
 	}
 
+	// 게시글 등록
+	@Override
+	public int writeItem(BoardModel boardModel) {
+		return boardMapper.writeItem(boardModel);
+	}
+	
+
+	
 
 	
 

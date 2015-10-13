@@ -64,9 +64,22 @@
    	#{content},
    	sysdate
    	)
-    
 </insert>
 
+<!-- 게시글 등록 -->
+<insert id="writeItem" parameterType="com.webapp.board.model.BoardModel">
+    insert into board
+   	(num, name, password, subject, content, regdate)
+   	values
+   	(
+   	board_num_seq.nextval,
+   	#{name},
+   	#{password},
+   	#{subject},
+   	#{content},
+   	sysdate
+   	)
+</insert>
 
 
 

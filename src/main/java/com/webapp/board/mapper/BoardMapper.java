@@ -25,5 +25,7 @@ public interface BoardMapper {
 						@Param("password")	String password,
 						@Param("subject")	String subject, 
 						@Param("content")	String content);
+	// 게시글 등록
+	int writeItem(BoardModel boardModel);
 	
 }

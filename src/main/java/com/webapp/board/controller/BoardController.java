@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,30 +36,34 @@ public class BoardController {
 		return page;
 	}
 
-	@RequestMapping(value="/{pageNo:[0-9]*}", method=RequestMethod.GET)
-	public String boardPage(HttpServletRequest request, Model model, @PathVariable String pageNo) {
+	// 게시판 글 가져오기
+	@RequestMapping(/*value="{pageNo}",*/ method=RequestMethod.GET)
+	public String boardPage(HttpServletRequest request, Model model /*, @PathVariable String pageNo*/) {
 		log.info("boardPage() start...");
-		log.info("총 게시물 수 = " + dao.totalCount());
-		log.info("모든 게시글 = " + dao.selectAll().size());
-		log.info("StartNum = " + page.getStartNum());
-		log.info("EndNum = " + page.getEndNum());
-		
 		
 		String num = request.getParameter("num");
 		if (num != null && !num.equals("")) {
-			log.info("num = " + num);
-			BoardModel content = dao.readContentByNum(Integer.parseInt(num));
-			model.addAttribute("content", content);
-			return "board/read";
+			return readItem(num, model);
 		}
 		
+		String pageNo = request.getParameter("pageNo");
+		if (pageNo == null)
+			pageNo = "1";
+			
 		page.setPageNo(Integer.parseInt(pageNo));
-		
 		List<BoardModel> board = dao.selectCurrentPage(page.getStartNum(), page.getEndNum());
-		
 		model.addAttribute("board", board);
+		
 		return "board/board";
 	}
 	
+	// 게시글 읽기 메서드
+	public String readItem(String num, Model model) {
+		log.info("num = " + num);
+		BoardModel content = dao.readContentByNum(Integer.parseInt(num));
+		model.addAttribute("content", content);
+		
+		return "board/read";
+	}
 	
 }

@@ -10,6 +10,7 @@
 
 <context:component-scan base-package="com.webapp.board.controller"/>
 
+
 <mvc:view-resolvers>
 	<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp"/>
 </mvc:view-resolvers>
