@@ -31,4 +31,7 @@ public interface BoardMapper {
 	// 게시글 수정
 	int updateItem(BoardModel boardModel);
 	
+	// 게시글 삭제
+	int deleteItem(int num);
+	
 }

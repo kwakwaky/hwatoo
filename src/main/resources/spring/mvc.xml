@@ -9,7 +9,10 @@
 
 
 <context:component-scan base-package="com.webapp.board.controller"/>
+<context:component-scan base-package="com.webapp.seotda.controller"/>
 
+<mvc:default-servlet-handler/>
+<mvc:annotation-driven/>
 
 <mvc:view-resolvers>
 	<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp"/>

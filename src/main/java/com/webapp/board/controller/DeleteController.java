@@ -55,9 +55,10 @@ public class DeleteController {
 	}
 	
 	@RequestMapping("/action")
-	public String deleteItem() {
+	public String deleteItem(int num) {
+		dao.deleteItem(num);
 		
-		return "redirect:/";
+		return "redirect:/board";
 	}
 	
 	

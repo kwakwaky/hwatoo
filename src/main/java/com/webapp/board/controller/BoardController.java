@@ -37,8 +37,8 @@ public class BoardController {
 	}
 
 	// 게시판 글 가져오기
-	@RequestMapping(/*value="{pageNo}",*/ method=RequestMethod.GET)
-	public String boardPage(HttpServletRequest request, Model model /*, @PathVariable String pageNo*/) {
+	@RequestMapping(method=RequestMethod.GET)
+	public String boardPage(HttpServletRequest request, Model model) {
 		log.info("boardPage() start...");
 		
 		String num = request.getParameter("num");

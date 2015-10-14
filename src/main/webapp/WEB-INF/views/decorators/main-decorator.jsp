@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
-<h1>ABC</h1>
-
+<h1>HWATOO</h1>
+<hr>
 <sitemesh:write property="body"/>
 
 

@@ -90,8 +90,12 @@
     	<if test="content != null">content  =  #{content},</if>
     </set>
     where num = #{num}
-
 </update>
 
+<!-- 게시글 삭제 -->
+<delete id="deleteItem" parameterType="int">
+    delete from board
+     where num = #{num}
+</delete>
 
 </mapper>

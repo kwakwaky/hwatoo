@@ -44,8 +44,11 @@ $(document).ready(function() {
 
 <div id="delete_hidden">
 정말 삭제하시겠습니까?
-<button>예</button><button>아니오</button>
+
+<a href="/hwatoo/board/delete/action?num=${num}"><button>예</button></a>
+<a href="/hwatoo/board?num=${num}"><button>아니오</button></a>
 </div>
+
 
 </body>
 </html>

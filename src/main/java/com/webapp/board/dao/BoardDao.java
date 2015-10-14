@@ -55,6 +55,14 @@ public class BoardDao implements BoardMapper{
 	public int updateItem(BoardModel boardModel) {
 		return boardMapper.updateItem(boardModel);
 	}
+
+	// 게시글 삭제
+	@Override
+	public int deleteItem(int num) {
+		return boardMapper.deleteItem(num);
+	}
+	
+	
 	
 
 	

@@ -24,7 +24,7 @@ public class WriteController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String writeItem(@ModelAttribute("write") WriteCommand command) {
 		dao.writeItem(command.getBoardModel());
-		return "redirect:/";
+		return "redirect:/board";
 	}
 	
 }
